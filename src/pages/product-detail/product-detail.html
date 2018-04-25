@@ -13,12 +13,12 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-grid>
-    <ion-row>
+<ion-content>
+  <ion-grid no-padding no-margin>
+    <ion-row no-padding no-margin>
       <ion-col>
         <ion-card>
-          <ion-slides>
+          <ion-slides pager>
               <ion-slide style="background-color: green">
                   <h2>Slide 1</h2>
                 </ion-slide>
@@ -32,8 +32,26 @@
                 </ion-slide>
           </ion-slides>
         </ion-card>
+     </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2>Hanes Women's Nano T-Shirt</h2>
+        <p>Rp 18.500</p>
       </ion-col>
     </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ul>
+          <li><a href="#home">S</a></li>
+          <li><a href="#news">M</a></li>
+          <li><a href="#contact">L</a></li>
+          <li><a href="#about">XL</a></li>
+        </ul>
+      </ion-col>
+    </ion-row>
+
   </ion-grid>
 
 </ion-content>
