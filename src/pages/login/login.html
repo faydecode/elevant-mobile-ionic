@@ -1,0 +1,25 @@
+
+<ion-content>
+  <ion-grid>
+    <ion-row wrap padding>
+        <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+            <h2>LOGIN</h2>
+            <ion-item no-padding transparent>
+                <ion-label floating>Email</ion-label>
+                <ion-input required type="text" [(ngModel)]="account.username"></ion-input>
+            </ion-item>
+            <!---Input field password-->
+            <ion-item no-padding transparent>
+                <ion-label floating>Password</ion-label>
+                <ion-input required type="password" [(ngModel)]="account.password"></ion-input>
+            </ion-item>
+
+            <button class="button-login" ion-button float-left button-clear-outline round outline (click)="doLogin()">MASUK</button>
+
+            <p class="akun">Belum punya akun? Daftar disini</p>
+        </ion-col>
+        
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

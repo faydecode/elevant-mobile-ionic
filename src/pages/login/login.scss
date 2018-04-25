@@ -1,0 +1,39 @@
+page-login {
+    ion-col {
+        position: relative;
+
+        .akun {
+            text-align: center;
+        }
+    }
+
+    img {
+        max-width: 100px;
+        max-height: 100px;
+        display: block;
+        margin: 35px auto 20px;
+    }
+
+
+    button {
+        padding-left: 50px;
+        width: 100%;
+        display: block;
+        float:left;
+      }
+    
+      .akun {
+          text-align: center;
+      }
+
+      .button-login {
+          margin-top: 50px;
+          margin-bottom: 50px;
+      }
+
+      ion-row {
+        align-items: center;
+        text-align: center;
+    }
+     
+}
