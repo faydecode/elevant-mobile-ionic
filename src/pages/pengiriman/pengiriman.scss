@@ -1,0 +1,31 @@
+page-pengiriman {
+    [header-title] {
+        font-weight: 100;
+      }
+      ion-item {
+        .input-wrapper {
+          display: block;
+    
+          ion-label {
+            margin: 0 !important;
+    
+            &[padding-top] {
+              padding-top: 25px;
+            }
+          }
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+      li {
+          .right-item {
+              float: right;
+          }
+      }
+        
+}

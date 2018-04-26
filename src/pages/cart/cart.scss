@@ -1,0 +1,28 @@
+page-cart {
+    .button-close {
+        position: relative;
+        margin: 0;
+        float: right;
+    }
+
+    ion-list {
+        margin: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    li {
+        padding-bottom: 10px;
+        button {
+            float: right;
+        }
+    }
+
+    .harga {
+        float: right;
+    }
+}

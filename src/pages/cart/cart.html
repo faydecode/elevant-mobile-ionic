@@ -1,0 +1,51 @@
+<!--
+  Generated template for the CartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>cart</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <h2>Detail Pemesanan :</h2>
+  <ion-list no-lines>
+    <ion-item>
+      <ion-row>
+        <ion-col col-12>
+          <div class="button-close">
+            <button ion-button clear small>
+              <ion-icon name="close"></ion-icon>
+            </button>
+          </div>
+        </ion-col>
+        <ion-col col-4>
+            <img src="assets/imgs/promo/8_c.png"/>
+            
+        </ion-col>
+        <ion-col col-8>
+          <ul>
+            <li>Hanes Mens T-Shirt</li>
+            <li>Ukuran: M</li>
+            <li>Jumlah 1 <button ion-button small>-</button>
+                         <button ion-button small>+</button> 
+            </li>
+          </ul>
+        </ion-col>
+        <ion-col col-12>
+          <div class="harga">Rp 18.500</div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <div class="subtotal">Subtotal : Rp. 18.500</div>
+    <button ion-button block (click)="gotoPengiriman()">Proses Belanja <ion-icon name="md-arrow-forward"></ion-icon></button>
+
+  </ion-list>
+</ion-content>
