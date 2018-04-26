@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     
-    <ion-title>Home</ion-title>
+    <ion-title>ELEVANT</ion-title>
 
     <ion-buttons end>
       <button ion-button icon-only>
@@ -14,11 +14,16 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content>
   <div>
-    <ion-segment [(ngModel)]="tabmen">
+    <ion-segment mode="ios" [(ngModel)]="tabmen" color="dark">
+      <!--<ion-segment-button value="beranda">
+            <ion-icon name="ios-flash-outline"></ion-icon> Beranda
+          </ion-segment-button>-->
       <ion-segment-button value="promo">
-        <ion-icon name="ios-flash-outline"></ion-icon> Promo
+        <ion-icon name="ios-flash-outline"> </ion-icon> Promo
+
       </ion-segment-button>
       <ion-segment-button value="kategori">
         <ion-icon name="md-grid"></ion-icon> Kategori
@@ -26,27 +31,41 @@
     </ion-segment>
   </div>
 
+  
   <div [ngSwitch]="tabmen">
+    <ion-list *ngSwitchCase="'beranda'">
+        <ion-list>
+            <li no-margin *ngFor="let group of kategori;">
+              <div>
+                  <ion-item no-margin padding no-lines background-size [ngStyle]="{'background-image': 'url( assets/imgs/dashboard/' + group.nama_kat_produk + '.jpg )'}">
+                      <h2 item-title float-left>{{ group.nama_kat_produk }}</h2>
+                  </ion-item>
+              </div>
+            </li>
+        
+        </ion-list>
+    </ion-list>
     <ion-list *ngSwitchCase="'promo'">
-      <li no-margin *ngFor="let group of kategori;">
+      <!--<li no-margin *ngFor="let group of kategori;">
         <div>
             <ion-item no-margin padding no-lines background-size [ngStyle]="{'background-image': 'url( assets/imgs/dashboard/' + group.nama_kat_produk + '.jpg )'}">
                 <h2 item-title float-left>{{ group.nama_kat_produk }}</h2>
             </ion-item>
         </div>
       </li>
+    -->
     </ion-list>
 
     <ion-list no-margin *ngSwitchCase="'kategori'">
       <ul no-margin no-padding>
-        <li no-margin *ngFor="let group of kategori;" (click)="openKategori(group.id_kat_produk);">
+        <li no-margin *ngFor="let group of kategori;" (click)="openKategori(group);">
             <button ion-item no-padding no-lines>
                 <ion-thumbnail item-start no-margin>
                     <img src="assets/imgs/kategori/{{ group.nama_kat_produk }}.png" alt="{{group.title}}" />
                 </ion-thumbnail>
-                <div title-block>
-                    <h2  item-title padding-right>{{ group.nama_kat_produk }}</h2>
-                </div>
+                
+                <h2 text-center>{{ group.nama_kat_produk }}</h2>
+                
             </button>
         </li>
       </ul>

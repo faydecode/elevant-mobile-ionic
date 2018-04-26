@@ -13,7 +13,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,public homeService:HomeserviceProvider
   ) {
-    this.tabmen = 'promo';
+    this.tabmen = 'beranda';
   }
 
   ionViewDidLoad()
@@ -30,7 +30,7 @@ export class HomePage {
   openKategori(k)
   {
     //console.log(":fsfssf");
-    this.navCtrl.push(ProductPage,{ id_kat_produk:k });
+    this.navCtrl.push(ProductPage,{ kategori:k });
   }
 
 

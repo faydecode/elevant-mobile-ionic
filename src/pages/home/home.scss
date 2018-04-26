@@ -1,4 +1,20 @@
 page-home {
+  .toolbar-background {
+    background-color: white;
+  }
+  .header-md::after {
+    display: none;
+  }
+
+  ion-segment {
+    //border-top: 1px solid gray;
+    //border-bottom: 1px solid gray
+    vertical-align: middle;
+    ion-segment-button {
+      align-items: center;
+    }
+  }
+
     ion-title {
         position: absolute;
         top: 0;
@@ -14,6 +30,7 @@ page-home {
         &[no-margin] {
           margin: 5px auto;
         }
+        
       }
 
       [background-size]{
@@ -41,12 +58,10 @@ page-home {
   
       }
 
-      ion-thumbnail {
-        img {
-          width: 200px;
-          height: 160px;
-          margin-bottom: 1px;
-        }
+      .item-md ion-thumbnail img {
+          width: 150px;
+          height: 150px;
+          //margin-bottom: 1px;
       }
   
       .label-md {
@@ -56,6 +71,11 @@ page-home {
         flex-direction: column;
         min-height: 140px;
       }
-
-
+      .input-wrapper {
+        h2 {
+          font-size: 20px;
+          vertical-align: middle;
+          margin-top: 65px;
+        }
+      }
 }

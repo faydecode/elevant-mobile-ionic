@@ -22,7 +22,7 @@ export class HttpserviceProvider {
     if(this.onDevice) {
       this.url = 'http://sis.kurniacopier.com/eduhouse/mobile';
     } else {
-      this.url = 'http://localhost/elevant/api';
+      this.url = 'http://localhost/elevant-web-panel/api';
     }
   }
 
