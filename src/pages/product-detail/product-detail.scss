@@ -3,9 +3,19 @@ page-product-detail {
         position: relative;
         text-align: center;
         align-items: center;
+        
     }
     ion-card {
         height: 400px;
+    }
+
+    ion-slide {
+        margin: 0;
+    }
+
+    .line-separator {
+        border-bottom: 1px solid #000000;
+        margin: auto 10px;
     }
 
     ul {
@@ -36,6 +46,17 @@ page-product-detail {
     
     li a:hover {
         background-color: #111111;
+    }
+
+    li.active a {
+        background-color: #111111;
+    }
+    
+    h2 {
+        font-size: 14px;
+    }
+    .ukuran {
+        margin: 10px 15% 20px;
     }
     
     

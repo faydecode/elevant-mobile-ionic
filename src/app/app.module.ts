@@ -10,6 +10,11 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { ProductPage } from '../pages/product/product';
 import { ProductDetailPage } from '../pages/product-detail/product-detail';
+import { CartPage } from '../pages/cart/cart';
+import { PengirimanPage } from '../pages/pengiriman/pengiriman';
+import { KonfirmasiPage }  from '../pages/konfirmasi/konfirmasi';
+import { ModalCartedPage } from '../pages/modal-carted/modal-carted';
+import { BuktiBayarPage } from '../pages/bukti-bayar/bukti-bayar';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,7 +31,12 @@ import { ProductServiceProvider } from '../providers/product-service/product-ser
     LoginPage,
     RegisterPage,
     ProductPage,
-    ProductDetailPage
+    ProductDetailPage,
+    ModalCartedPage,
+    CartPage,
+    PengirimanPage,
+    KonfirmasiPage,
+    BuktiBayarPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +51,12 @@ import { ProductServiceProvider } from '../providers/product-service/product-ser
     LoginPage,
     RegisterPage,
     ProductPage,
-    ProductDetailPage
+    ProductDetailPage,
+    ModalCartedPage,
+    CartPage,
+    PengirimanPage,
+    KonfirmasiPage,
+    BuktiBayarPage
   ],
   providers: [
     StatusBar,

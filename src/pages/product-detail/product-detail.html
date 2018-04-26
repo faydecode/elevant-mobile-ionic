@@ -16,7 +16,7 @@
 <ion-content>
   <ion-grid no-padding no-margin>
     <ion-row no-padding no-margin>
-      <ion-col>
+      <ion-col no-padding no-margin>
         <ion-card>
           <ion-slides pager>
               <ion-slide style="background-color: green">
@@ -41,17 +41,36 @@
       </ion-col>
     </ion-row>
     
+    <div class="line-separator"></div>
+
     <ion-row>
       <ion-col>
-        <ul>
-          <li><a href="#home">S</a></li>
-          <li><a href="#news">M</a></li>
-          <li><a href="#contact">L</a></li>
-          <li><a href="#about">XL</a></li>
-        </ul>
+          <div class="ukuran">
+            <h2>PILIH UKURAN</h2>
+            <ul>
+            
+                <li class="active" (click)="selectSize()"><a href="#">S</a></li>
+                <li><a href="#">M</a></li>
+                <li><a href="#">L</a></li>
+                <li><a href="#">XL</a></li>
+              
+            </ul>
+          
+         
+        </div>
       </ion-col>
     </ion-row>
+    <div class="line-separator"></div>
+    <ion-row>
+      <ion-col>
+          <h2>DESKRIPSI</h2>
+          <p>
+            Baju svcjov vvhpih vpvpvv povipv ivhipevipvhvivhp vipvh v vi ipvvi vivi pvivp hivpvi
+          </p>
 
+          <button ion-button block (click)="tambahKeranjang('id');">Beli Produk ini</button>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
 </ion-content>
