@@ -19,25 +19,17 @@
       <ion-col no-padding no-margin>
         <ion-card>
           <ion-slides pager>
-              <ion-slide style="background-color: green">
-                  <h2>Slide 1</h2>
-                </ion-slide>
-              
-                <ion-slide style="background-color: blue">
-                  <h2>Slide 2</h2>
-                </ion-slide>
-              
-                <ion-slide style="background-color: red">
-                  <h2>Slide 3</h2>
-                </ion-slide>
+              <ion-slide *ngFor="let i of images">
+                <img src="{{ i.img_url }}"/>
+              </ion-slide>
           </ion-slides>
         </ion-card>
      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <h2>Hanes Women's Nano T-Shirt</h2>
-        <p>Rp 18.500</p>
+        <h2 class="nama-produk">{{ produk.nama_produk }}</h2>
+        <p class="harga">Rp {{ produk.harga | number }}</p>
       </ion-col>
     </ion-row>
     
@@ -46,29 +38,27 @@
     <ion-row>
       <ion-col>
           <div class="ukuran">
-            <h2>PILIH UKURAN</h2>
-            <ul>
+            <h3>PILIH UKURAN :</h3>
+          <ul>
             
-                <li class="active" (click)="selectSize()"><a href="#">S</a></li>
-                <li><a href="#">M</a></li>
-                <li><a href="#">L</a></li>
-                <li><a href="#">XL</a></li>
-              
+                <li *ngFor="let u of ukuran"  (click)="selectSize($event)" [ngStyle]="{'background-color': buttonColor}">
+                  <a href="#">{{ u.kode_ukuran }}</a>
+                </li>
+                
             </ul>
-          
-         
+ 
         </div>
       </ion-col>
     </ion-row>
     <div class="line-separator"></div>
     <ion-row>
       <ion-col>
-          <h2>DESKRIPSI</h2>
+          <h3>DESKRIPSI :</h3>
           <p>
-            Baju svcjov vvhpih vpvpvv povipv ivhipevipvhvivhp vipvh v vi ipvvi vivi pvivp hivpvi
+            {{ produk.spek_produk }}
           </p>
 
-          <button ion-button block (click)="tambahKeranjang('id');">Beli Produk ini</button>
+          <button ion-button block (click)="tambahKeranjang();">Beli Produk ini</button>
       </ion-col>
     </ion-row>
   </ion-grid>

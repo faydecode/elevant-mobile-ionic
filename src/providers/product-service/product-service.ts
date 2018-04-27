@@ -23,4 +23,19 @@ export class ProductServiceProvider {
     return  this.http.post('product.php',body);
   }
 
+  listImageProduk(body:any)
+  {
+    return this.http.post('product.php',body);
+  }
+
+  listUkuran(body:any)
+  {
+    return this.http.post('product.php',body);
+  }
+
+  detailProduk(body:any)
+  {
+    return this.http.post('product.php',body);
+  }
+
 }

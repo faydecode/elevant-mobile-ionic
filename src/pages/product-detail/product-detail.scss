@@ -52,9 +52,19 @@ page-product-detail {
         background-color: #111111;
     }
     
-    h2 {
+    h3 {
         font-size: 14px;
+        color: gray;
     }
+
+    .nama-produk {
+        font-size: 28px;
+    }
+
+    .harga {
+        font-size: 20px;
+    }
+
     .ukuran {
         margin: 10px 15% 20px;
     }

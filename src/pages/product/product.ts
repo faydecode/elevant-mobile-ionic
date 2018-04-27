@@ -19,10 +19,13 @@ export class ProductPage {
 
   kategori:any;
   nama:string='';
-  produk:any[] = [
+  produk:any[];
+
+  /*produk:any[] = [
     { id_produk:'KS20180400001', nama_produk:'Kemeja Anak',harga:18500 },
     { id_produk:'KS20180400002', nama_produk:'Kemeja Dewasa',harga:15000 }
   ];
+  */
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public prodServ:ProductServiceProvider) {
     this.kategori = navParams.get('kategori');
@@ -32,7 +35,7 @@ export class ProductPage {
 
   ionViewDidLoad() {
     console.log('ionVi',this.kategori);
-    //this.listProduk();
+    this.listProduk();
   }
 
   listProduk()
