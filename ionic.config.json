@@ -1,0 +1,8 @@
+{
+  "name": "elevant",
+  "app_id": "c38b4e2c",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
