@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController,ModalController } from 'ionic-angular';
 import { ModalCartedPage } from '../../pages/modal-carted/modal-carted';
 import { ProductServiceProvider } from '../../providers/product-service/product-service';
+import { GlobaldataProvider } from '../../providers/globaldata/globaldata';
 
 /**
  * Generated class for the ProductDetailPage page.
@@ -18,13 +19,14 @@ export class ProductDetailPage {
 
   images:any[];
   ukuran:any[];
-  id_produk:string;
+  id_produk:string='';
   produk:any = {};
-  size:any;
+  selectedSize:string='';
   buttonColor: string = '#FFF'; //Default Color
+  jumlah:number=1;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,
-    public modalCtrl:ModalController, public prodServ:ProductServiceProvider
+    public modalCtrl:ModalController, public prodServ:ProductServiceProvider,public cartSrv:GlobaldataProvider
   ) {
     
     this.id_produk = navParams.get('id_produk');
@@ -37,7 +39,9 @@ export class ProductDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductDetailPage');
-    
+    this.cartSrv.showCart().then((res)=>{
+      console.log('show cart: ',res);
+    });
   }
 
   detailProduk()
@@ -81,17 +85,50 @@ export class ProductDetailPage {
 
 
 
-  selectSize(e:any)
+  selectSize(u)
   {
-    console.log("event ",e);
+    //console.log("event ",e);
     //this.buttonColor = "#111111";
+    this.selectedSize = u.kode_ukuran;
   }
 
   tambahKeranjang()
   {
     //this.presentConfirm();
     //console.log("modal");
-    this.showConfirm();
+    /*console.log('id_produk',this.id_produk);
+    console.log('nama_produk',this.produk.nama_produk);
+    console.log('ukuran',this.selectedSize);
+    console.log('images',this.images[0].img_url);
+    */
+   
+   this.cartSrv.getProduk(this.id_produk).then((res)=>{
+    console.log('ada produk?',res);
+    if(res)
+    {
+      this.jumlah += res[0].jumlah;
+      
+      this.cartSrv.updateCart(res[0].id_produk,res[0].nama_produk,res[0].ukuran,
+        res[0].img_url,this.jumlah,res[0].rev).then((res3)=>{
+          if(res3)
+          {
+            this.showConfirm();
+          }    
+        });
+
+    } else {
+      this.cartSrv.addCart(this.id_produk,this.produk.nama_produk,this.selectedSize,
+        this.images[0].img_url,this.jumlah).then((res2)=>{
+          if(res2)
+          {
+            this.showConfirm();
+          }    
+        });
+    }
+   });
+   
+   //console.log('jumlah sudah',this.jumlah);
+   
   }
 
   showConfirm()
@@ -104,27 +141,5 @@ export class ProductDetailPage {
     confirmModal.present();
   }
 
-  presentConfirm() {
-    let alert = this.alertCtrl.create({
-      title: 'Confirm purchase',
-      message: 'Do you want to buy this book?',
-      enableBackdropDismiss:false,
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Buy',
-          handler: () => {
-            console.log('Buy clicked');
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
+  
 }

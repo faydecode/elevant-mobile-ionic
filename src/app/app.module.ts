@@ -23,6 +23,8 @@ import { LoginserviceProvider } from '../providers/loginservice/loginservice';
 import { GlobaldataProvider } from '../providers/globaldata/globaldata';
 import { HomeserviceProvider } from '../providers/homeservice/homeservice';
 import { ProductServiceProvider } from '../providers/product-service/product-service';
+import { Register2Page } from '../pages/register2/register2';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { ProductServiceProvider } from '../providers/product-service/product-ser
     CartPage,
     PengirimanPage,
     KonfirmasiPage,
-    BuktiBayarPage
+    BuktiBayarPage,
+    Register2Page
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { ProductServiceProvider } from '../providers/product-service/product-ser
     CartPage,
     PengirimanPage,
     KonfirmasiPage,
-    BuktiBayarPage
+    BuktiBayarPage,
+    Register2Page
   ],
   providers: [
     StatusBar,

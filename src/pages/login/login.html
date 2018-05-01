@@ -6,7 +6,7 @@
             <h2>LOGIN</h2>
             <ion-item no-padding transparent>
                 <ion-label floating>Email</ion-label>
-                <ion-input required type="text" [(ngModel)]="account.username"></ion-input>
+                <ion-input required type="email" [(ngModel)]="account.username"></ion-input>
             </ion-item>
             <!---Input field password-->
             <ion-item no-padding transparent>
@@ -16,7 +16,8 @@
 
             <button class="button-login" ion-button float-left button-clear-outline round outline (click)="doLogin()">MASUK</button>
 
-            <p class="akun">Belum punya akun? Daftar disini</p>
+            <p class="akun">Belum punya akun?</p>
+            <button class="button-register" ion-button float-left button-clear-outline round outline (click)="gotoRegister()">DAFTAR</button>
         </ion-col>
         
     </ion-row>

@@ -8,7 +8,7 @@
 
     <ion-buttons end>
       <button ion-button icon-only>
-        <ion-icon name="cart"></ion-icon>
+        <ion-icon name="cart"><ion-badge item-end>{{ count }}</ion-badge></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -59,7 +59,7 @@
     <ion-list no-margin *ngSwitchCase="'kategori'">
       <ul no-margin no-padding>
         <li no-margin *ngFor="let group of kategori;" (click)="openKategori(group);">
-            <button ion-item no-padding no-lines>
+            <button class="list_kategori" ion-item no-padding no-lines>
                 <ion-thumbnail item-start no-margin>
                     <img src="assets/imgs/kategori/{{ group.nama_kat_produk }}.png" alt="{{group.title}}" />
                 </ion-thumbnail>

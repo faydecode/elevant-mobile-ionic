@@ -31,22 +31,22 @@ page-product {
         width: 100%;
         color: #fff;
       }
-      ion-navbar {
-        background-color: black;
-        color: white;
-        ion-title {
-          position: absolute;
-          padding: 0 20px;
-          color: white;
-          text-align: right;
-          
-        }
+   
+
+      
+      ion-title {
+
       }
-      .toolbar-title-md{
+
+      .toolbar-title{
+        //color: white;
+        text-align: right;
         color: white;
       }
-      .bar {
+    .toolbar-background {
         background-color: black;
+      }
+      .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
         color: white;
       }
       

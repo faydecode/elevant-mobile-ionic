@@ -1,17 +1,4 @@
 <ion-header>
-    <ion-toolbar>
-        <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-        </button>
-        
-        <ion-title>ELEVANT</ion-title>
-
-        <ion-buttons end>
-        <button ion-button icon-only>
-            <ion-icon name="cart"></ion-icon>
-        </button>
-        </ion-buttons>
-    </ion-toolbar>
     <ion-navbar>
         <ion-title class="bar"> {{ nama }}</ion-title>
     </ion-navbar>
@@ -38,13 +25,13 @@
         <ion-col col-6 col-sm-3 col-md-6 col-lg-4 col-xl-3 *ngFor="let p of produk;let i = index;">
            
                 <ion-card (click)="openDetail(p)">
-                    <img src="assets/imgs/produk/2_c.jpg"/>
+                    <img src="{{ p.img_url }}"/>
                     <ion-card-content no-padding>
                         <ion-card-title>
                         {{ p.nama_produk }}
                         </ion-card-title>
                         <p>
-                        {{ p.harga }}
+                        Rp {{ p.harga | number }}
                         </p>
                     </ion-card-content>
                 </ion-card>

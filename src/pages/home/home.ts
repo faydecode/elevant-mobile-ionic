@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HomeserviceProvider } from '../../providers/homeservice/homeservice';
 import { ProductPage } from '../product/product';
+import { GlobaldataProvider } from '../../providers/globaldata/globaldata';
+//import { MyApp } from '../../app/app.component';
 
 @Component({
   selector: 'page-home',
@@ -10,8 +12,9 @@ import { ProductPage } from '../product/product';
 export class HomePage {
   tabmen:any;
   kategori:any[];
+  count:string='';
 
-  constructor(public navCtrl: NavController,public homeService:HomeserviceProvider
+  constructor(public navCtrl: NavController,public homeService:HomeserviceProvider,public cartSrv:GlobaldataProvider
   ) {
     this.tabmen = 'beranda';
   }
@@ -24,6 +27,14 @@ export class HomePage {
       this.kategori = res.data;
       console.log('data dash',this.kategori);
     });
+    setTimeout(() => {
+      this.cartSrv.getCountItem().then((res)=>{
+        console.log('jumlah item', res);
+        this.count = String(res);
+      });  
+    }, 2000);
+    
+    
     
   }
 

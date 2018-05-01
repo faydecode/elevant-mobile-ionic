@@ -1,31 +1,33 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController,Loading,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController,Loading,ToastController,AlertController } from 'ionic-angular';
 import { LoginserviceProvider }  from '../../providers/loginservice/loginservice';
-import { Register2Page }  from '../../pages/register2/register2';
+import { LoginPage } from '../../pages/login/login';
+
 /**
- * Generated class for the RegisterPage page.
+ * Generated class for the Register2Page page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html',
+  selector: 'page-register2',
+  templateUrl: 'register2.html',
 })
-export class RegisterPage {
-  account: { email: string } = 
-  { email:'' };
+export class Register2Page {
+  account: { username: string, password:string,email:string,FN:string } = 
+  { username:'',password:'',email:'',FN:'register' };
 
   loader:Loading;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public loginSrv:LoginserviceProvider,
-    public loadingCtrl:LoadingController,public toastCtrl:ToastController
+    public loadingCtrl:LoadingController,public toastCtrl:ToastController,public alertCtrl:AlertController
   ) {
+    this.account.email = navParams.get('email');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+    console.log('ionViewDidLoad Register2Page');
   }
 
   presentLoading() {
@@ -35,22 +37,26 @@ export class RegisterPage {
       this.loader.present();
   }
 
-  cekEmailExist()
+  doRegister()
   {
-
     this.presentLoading();
-    this.loginSrv.cekEmail(this.account.email)
+    this.loginSrv.register(this.account)
     .map(res => res.json())
      .subscribe(resp => {
       this.loader.dismiss();
       if(resp.kode == 1)  //email sudah terdaftar
       {
-        let toast3 = this.toastCtrl.create({
-          message: 'Email sudah terdaftar. Silakan lakukan login',
-          duration: 3000,
-          position: 'top'
+        let alert = this.alertCtrl.create({
+          title: '',
+          subTitle: 'Selamat! anda telah terdaftar sebagai member elevant. Silakan login!',
+          buttons: [{
+            text: 'LOGIN',
+            handler: data => {
+              this.navCtrl.setRoot(LoginPage);
+            }
+          }]
         });
-        toast3.present();
+        alert.present();
       } else {
         this.navCtrl.setRoot(Register2Page, { email:this.account.email });
       }

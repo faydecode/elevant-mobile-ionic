@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams,ToastController, LoadingController,
 import { LoginserviceProvider } from '../../providers/loginservice/loginservice';
 import { GlobaldataProvider } from '../../providers/globaldata/globaldata';
 import { HomePage } from '../home/home';
+import { MyApp } from '../../app/app.component';
+import { RegisterPage }  from '../../pages/register/register';
 
 /**
  * Generated class for the LoginPage page.
@@ -17,7 +19,7 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  public account: {username: string, password: string,FN:String } = 
+  account: {username: string, password: string,FN:String } = 
   { username:'',password:'',FN:'login' };
   private loginErrorString: string = 'Gagal Login';
   loader:Loading;
@@ -51,6 +53,7 @@ export class LoginPage {
         console.log('resep',resp);
         if(resp.kode == 1) {
           this.navCtrl.setRoot(HomePage);
+          //this.navCtrl.setRoot(MyApp);
           this.loginService.saveLogin(resp);
           this.loader.dismiss();
         } else {
@@ -74,6 +77,11 @@ export class LoginPage {
       toast.present();
     });
     
+  }
+
+  gotoRegister()
+  {
+    this.navCtrl.setRoot(RegisterPage);
   }
 
 

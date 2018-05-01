@@ -41,8 +41,8 @@
             <h3>PILIH UKURAN :</h3>
           <ul>
             
-                <li *ngFor="let u of ukuran"  (click)="selectSize($event)" [ngStyle]="{'background-color': buttonColor}">
-                  <a href="#">{{ u.kode_ukuran }}</a>
+                <li *ngFor="let u of ukuran"  (click)="selectSize(u)">
+                  <a [ngStyle]="{'background-color': buttonColor}" href="#">{{ u.kode_ukuran }}</a>
                 </li>
                 
             </ul>

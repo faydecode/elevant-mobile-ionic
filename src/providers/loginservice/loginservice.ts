@@ -74,4 +74,15 @@ export class LoginserviceProvider {
     return seq;
   }
 
+  cekEmail(email:any)
+  {
+    let body = { FN:'cek_email',email:email }
+    return this.api.post('login.php',body);
+  }
+
+  register(body:any)
+  {
+    return this.api.post('login.php',body);
+  }
+
 }
