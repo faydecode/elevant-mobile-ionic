@@ -29,20 +29,16 @@
           <h2>Pilih Kurir Pengiriman</h2>
         </div>
 
-        <ion-list>
-             <!--<ion-item>
-               <ion-label>Kurir</ion-label>
-                <ion-select [(ngModel)]="kurir">
-                  <ion-option value="jne">JNE</ion-option>
-                  <ion-option value="tiki">TIKI</ion-option>
-                </ion-select>
-                
-            </ion-item>-->
-            <button ion-item>
+        <button ion-button outline icon-right>
+          <img src="assets/imgs/JNE.jpg"/>
+          <div class="icon-kurir"> <ion-icon name="ios-add-circle-outline"></ion-icon></div>
+        </button>
 
-            </button>
-           
-        </ion-list>
+        <button ion-button outline icon-right>
+          <img src="assets/imgs/TIKI.jpg"/>
+          <div class="icon-kurir"> <ion-icon name="ios-add-circle-outline"></ion-icon></div>
+        </button>
+
       </ion-col>
 
     </ion-row>
@@ -55,13 +51,35 @@
             <ion-item no-lines>
                 <!-- Content Avatar -->
                 <ion-thumbnail item-start>
-                    <img images-filter src="assets/imgs/promo/8_a.png" />
+                    <img images-filter src="assets/imgs/bca.jpg" />
                 </ion-thumbnail>
                 <!-- Content Title -->
                 <ion-label item-title padding-top>Anggy Akbar</ion-label>
                 <!-- Content Subtitle -->
-                <ion-label item-subtitle text-wrap>0306117424</ion-label>
+                <ion-label item-subtitle text-wrap>5260314841</ion-label>
                 <ion-radio item-end ></ion-radio>
+          </ion-item>
+          <ion-item no-lines>
+            <!-- Content Avatar -->
+            <ion-thumbnail item-start>
+                <img images-filter src="assets/imgs/bni.jpg" />
+            </ion-thumbnail>
+            <!-- Content Title -->
+            <ion-label item-title padding-top>Anggy Akbar</ion-label>
+            <!-- Content Subtitle -->
+            <ion-label item-subtitle text-wrap>0605285864</ion-label>
+            <ion-radio item-end ></ion-radio>
+          </ion-item>
+          <ion-item no-lines>
+            <!-- Content Avatar -->
+            <ion-thumbnail item-start>
+                <img images-filter src="assets/imgs/mandiri.jpg" />
+            </ion-thumbnail>
+            <!-- Content Title -->
+            <ion-label item-title padding-top>Anggy Akbar</ion-label>
+            <!-- Content Subtitle -->
+            <ion-label item-subtitle text-wrap>7113341097</ion-label>
+            <ion-radio item-end ></ion-radio>
           </ion-item>
         </ion-list>
       </ion-col>  

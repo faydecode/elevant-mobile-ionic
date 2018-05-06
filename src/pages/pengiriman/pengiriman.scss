@@ -37,6 +37,17 @@ page-pengiriman {
       }
     }
 
+
+    .button-outline-md {
+      width: 100%;
+      border-radius: 5px;
+      height: 60px;
+      img {
+        float:left;
+      }
+      margin-bottom: 12px;
+    }
+
       ul {
         list-style-type: none;
         margin: 0 auto;

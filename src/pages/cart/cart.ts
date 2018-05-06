@@ -18,6 +18,7 @@ import { GlobaldataProvider } from '../../providers/globaldata/globaldata';
 export class CartPage {
 
   cart:any=[];
+  subtotal:number=0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public login:LoginserviceProvider,
     public alertCtrl:AlertController,private cartSrv:GlobaldataProvider
@@ -35,8 +36,22 @@ export class CartPage {
       
       this.cart = res;
       console.log('show cart: ',this.cart);
+      for(let i=0; i < this.cart.length; i++)
+      {
+        let total = this.cart[i].jumlah * this.cart[i].harga;
+        
+        this.subtotal += Number(total);
+        //console.log('total',this.subtotal);
+      }
     });
+
+
+   
+
+    
+    
   }
+
 
   kurangiQty(item)
   {
