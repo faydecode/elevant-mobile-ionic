@@ -15,6 +15,27 @@ page-pengiriman {
           }
         }
       }
+    .section {
+      //margin: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #717171;
+    }
+    .line-separator {
+        border-bottom: 1px solid #717171;
+        //margin: auto 20px;
+    }
+
+    h2 {
+        font-size: 16px;
+        
+    }
+
+    button {
+      ion-item {
+        border-radius: 15px solid #111111;
+      }
+    }
 
       ul {
         list-style-type: none;
@@ -27,5 +48,18 @@ page-pengiriman {
               float: right;
           }
       }
+
+      .toolbar-title{
+        //color: white;
+        text-align: right;
+        color: white;
+      }
+    .toolbar-background {
+        background-color: black;
+      }
+      .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: white;
+      }
+      
         
 }

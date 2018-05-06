@@ -6,7 +6,19 @@ page-cart {
     }
 
     ion-list {
-        margin: 0;
+        //margin: 0;
+        //border-top: 1px solid #717171;
+        margin: auto 20px;
+    }
+
+    .line-separator {
+        border-bottom: 1px solid #717171;
+        margin: auto 20px;
+    }
+
+    h2 {
+        font-size: 16px;
+        margin: 20px;
     }
 
     ul {
@@ -23,6 +35,36 @@ page-cart {
     }
 
     .harga {
+        font-size: 18px;
         float: right;
+        font-weight: bold;
     }
+
+    .subtotal {
+        
+        margin: auto 20px;
+
+        font-size: 22px;
+        float: right;
+        font-weight: bold;
+    }
+
+    .button-small-md {
+        box-shadow: none;
+        width: 50px;
+    }
+
+
+    .toolbar-title{
+        //color: white;
+        text-align: right;
+        color: white;
+      }
+    .toolbar-background {
+        background-color: black;
+      }
+      .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: white;
+      }
+      
 }

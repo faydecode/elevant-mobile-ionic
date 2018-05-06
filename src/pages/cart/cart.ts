@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angul
 import { PengirimanPage } from '../../pages/pengiriman/pengiriman';
 import { LoginserviceProvider } from '../../providers/loginservice/loginservice';
 import { LoginPage } from '../login/login';
-
+import { GlobaldataProvider } from '../../providers/globaldata/globaldata';
 /**
  * Generated class for the CartPage page.
  *
@@ -17,13 +17,56 @@ import { LoginPage } from '../login/login';
 })
 export class CartPage {
 
+  cart:any=[];
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public login:LoginserviceProvider,
-    public alertCtrl:AlertController
+    public alertCtrl:AlertController,private cartSrv:GlobaldataProvider
   ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CartPage');
+    this.showCart();
+  }
+
+  showCart()
+  {
+    this.cartSrv.showCart().then((res)=>{
+      
+      this.cart = res;
+      console.log('show cart: ',this.cart);
+    });
+  }
+
+  kurangiQty(item)
+  {
+    var qty:number = item.jumlah;
+    qty--;
+
+    if(qty <= 0)
+    {
+      this.cartSrv.deleteCart(item.id,item.rev);
+    } else {
+      this.cartSrv.updateCart(item.id,item.id_produk,item.nama_produk,item.ukuran,item.img_url,qty,item.harga,item.rev);
+    }    
+    this.showCart();
+  }
+
+  tambahQty(item)
+  {
+    var qty:number = item.jumlah;
+    qty++;
+    this.cartSrv.updateCart(item.id,item.id_produk,item.nama_produk,item.ukuran,item.img_url,qty,item.harga,item.rev);
+    this.showCart();
+  }
+
+  deleteItem(item)
+  {
+    this.cartSrv.deleteCart(item.id,item.rev).then((res)=>{
+      
+      console.log('show cart: ',this.cart);
+    });
+    this.showCart();
   }
 
   cekLogin()

@@ -39,9 +39,6 @@ export class ProductDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductDetailPage');
-    this.cartSrv.showCart().then((res)=>{
-      console.log('show cart: ',res);
-    });
   }
 
   detailProduk()
@@ -65,6 +62,7 @@ export class ProductDetailPage {
     this.prodServ.listImageProduk(body)
     .map(res => res.json())
       .subscribe(res => {
+        console.log('data images',res);
         this.images = res.data;
         console.log('data image ',this.images);
     });
@@ -102,14 +100,15 @@ export class ProductDetailPage {
     console.log('images',this.images[0].img_url);
     */
    
-   this.cartSrv.getProduk(this.id_produk).then((res)=>{
+   this.cartSrv.getProduk(this.id_produk,this.selectedSize).then((res)=>{
     console.log('ada produk?',res);
     if(res)
     {
       this.jumlah += res[0].jumlah;
+      var harga = this.produk.harga * this.jumlah;
       
-      this.cartSrv.updateCart(res[0].id_produk,res[0].nama_produk,res[0].ukuran,
-        res[0].img_url,this.jumlah,res[0].rev).then((res3)=>{
+      this.cartSrv.updateCart(res[0].id,res[0].id_produk,res[0].nama_produk,res[0].ukuran,
+        res[0].img_url,this.jumlah,harga,res[0].rev).then((res3)=>{
           if(res3)
           {
             this.showConfirm();
@@ -118,13 +117,14 @@ export class ProductDetailPage {
 
     } else {
       this.cartSrv.addCart(this.id_produk,this.produk.nama_produk,this.selectedSize,
-        this.images[0].img_url,this.jumlah).then((res2)=>{
+        this.images[0].img_url,1,this.produk.harga).then((res2)=>{
           if(res2)
           {
             this.showConfirm();
           }    
         });
     }
+    
    });
    
    //console.log('jumlah sudah',this.jumlah);

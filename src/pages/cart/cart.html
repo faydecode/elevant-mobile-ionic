@@ -7,45 +7,53 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>cart</ion-title>
+    <ion-title>Keranjang Belanja</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <h2>Detail Pemesanan :</h2>
-  <ion-list no-lines>
-    <ion-item>
-      <ion-row>
-        <ion-col col-12>
-          <div class="button-close">
-            <button ion-button clear small>
-              <ion-icon name="close"></ion-icon>
-            </button>
-          </div>
-        </ion-col>
-        <ion-col col-4>
-            <img src="assets/imgs/promo/8_c.png"/>
-            
-        </ion-col>
-        <ion-col col-8>
-          <ul>
-            <li>Hanes Mens T-Shirt</li>
-            <li>Ukuran: M</li>
-            <li>Jumlah 1 <button ion-button small>-</button>
-                         <button ion-button small>+</button> 
-            </li>
-          </ul>
-        </ion-col>
-        <ion-col col-12>
-          <div class="harga">Rp 18.500</div>
-        </ion-col>
-      </ion-row>
-    </ion-item>
-
-    <div class="subtotal">Subtotal : Rp. 18.500</div>
-    <button ion-button block (click)="cekLogin()">Proses Belanja <ion-icon name="md-arrow-forward"></ion-icon></button>
-
-  </ion-list>
+  
+  <div *ngIf="cart.length">
+      <h2>Detail Pemesanan :</h2>
+    <ion-list no-lines *ngFor="let c of cart">
+      <div class="line-separator"></div>
+      <ion-item>
+        <ion-row no-padding>
+          <ion-col col-12 no-padding>
+            <div class="button-close">
+              <button ion-button clear small (click)="deleteItem(c)">
+                <ion-icon name="close"></ion-icon>
+              </button>
+            </div>
+          </ion-col>
+          <ion-col col-4>
+              <img src="{{ c.img_url }}"/>
+          </ion-col>
+          <ion-col col-8>
+            <ul>
+              <li>{{ c.nama_produk }}</li>
+              <li>Ukuran: {{ c.ukuran }}</li>
+              <li>Jumlah {{ c.jumlah }} <button ion-button color="dark" small (click)="kurangiQty(c)">-</button>
+                          <button ion-button small color="dark" (click)="tambahQty(c)">+</button> 
+              </li>
+            </ul>
+          </ion-col>
+          <ion-col col-12>
+            <div class="harga">Rp {{ c.harga * c.jumlah | number }}</div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+    <div class="subtotal">Subtotal : Rp 18.500</div>
+    
+  </div>
+  <!--<div *ngIf="!cart.length">
+    <h2>Oops, Keranjang kamu kosong. Silakan belanja dulu!</h2>
+  </div>-->
 </ion-content>
+
+<ion-footer>
+    <button ion-button block (click)="cekLogin()">Proses Belanja <ion-icon name="md-arrow-forward"></ion-icon></button>
+</ion-footer>
