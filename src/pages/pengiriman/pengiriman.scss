@@ -30,6 +30,12 @@ page-pengiriman {
         font-size: 16px;
         
     }
+    ion-item {
+      ion-thumbnail[item-start] {
+          margin: 8px 50px 8px 0;
+      }
+    }
+    
 
     button {
       ion-item {

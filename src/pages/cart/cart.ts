@@ -32,6 +32,7 @@ export class CartPage {
 
   showCart()
   {
+    this.subtotal = 0;
     this.cartSrv.showCart().then((res)=>{
       
       this.cart = res;

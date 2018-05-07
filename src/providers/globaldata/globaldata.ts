@@ -2,7 +2,6 @@
 import { Injectable } from '@angular/core';
 import PouchDB from 'pouchdb';
 import PouchDBFind from 'pouchdb-find';
-import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite'
 import 'rxjs/add/operator/map';
 import { Item } from 'ionic-angular';
 

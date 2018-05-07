@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController  } from 'ionic-angular';
 import { KonfirmasiPage } from '../../pages/konfirmasi/konfirmasi';
 
 /**
@@ -13,18 +13,46 @@ import { KonfirmasiPage } from '../../pages/konfirmasi/konfirmasi';
   selector: 'page-pengiriman',
   templateUrl: 'pengiriman.html',
 })
+
+
+
 export class PengirimanPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  bank:string='bca';
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PengirimanPage');
+    
   }
 
   gotoKonfirmasi()
   {
     this.navCtrl.push(KonfirmasiPage);
+  }
+
+  showRadio(tipe) {
+      let alert = this.alertCtrl.create();
+      alert.setTitle('Pilih Paket');
+
+      alert.addInput({
+        type: 'radio',
+        label: 'Blue',
+        value: 'blue',
+        checked: true
+      });
+
+      alert.addButton('Cancel');
+      alert.addButton({
+        text: 'OK',
+        handler: data => {
+          //this.testRadioOpen = false;
+          //this.testRadioResult = data;
+        }
+      });
+      alert.present();
   }
 
 }

@@ -29,12 +29,12 @@
           <h2>Pilih Kurir Pengiriman</h2>
         </div>
 
-        <button ion-button outline icon-right>
+        <button ion-button outline icon-right (click)="showRadio('jne')">
           <img src="assets/imgs/JNE.jpg"/>
           <div class="icon-kurir"> <ion-icon name="ios-add-circle-outline"></ion-icon></div>
         </button>
 
-        <button ion-button outline icon-right>
+        <button ion-button outline icon-right (click)="showRadio('tiki')">
           <img src="assets/imgs/TIKI.jpg"/>
           <div class="icon-kurir"> <ion-icon name="ios-add-circle-outline"></ion-icon></div>
         </button>
@@ -47,39 +47,39 @@
         <div class="section">
           <h2>Pilih Bank Transfer</h2>
         </div>
-        <ion-list radio-group>
+        <ion-list radio-group [(ngModel)]="bank">
             <ion-item no-lines>
                 <!-- Content Avatar -->
                 <ion-thumbnail item-start>
-                    <img images-filter src="assets/imgs/bca.jpg" />
+                    <img src="assets/imgs/bca.jpg" />
                 </ion-thumbnail>
                 <!-- Content Title -->
                 <ion-label item-title padding-top>Anggy Akbar</ion-label>
                 <!-- Content Subtitle -->
                 <ion-label item-subtitle text-wrap>5260314841</ion-label>
-                <ion-radio item-end ></ion-radio>
+                <ion-radio item-end value="bca" ionChange="selectBank()"></ion-radio>
           </ion-item>
           <ion-item no-lines>
             <!-- Content Avatar -->
             <ion-thumbnail item-start>
-                <img images-filter src="assets/imgs/bni.jpg" />
+                <img src="assets/imgs/bni.jpg" />
             </ion-thumbnail>
             <!-- Content Title -->
             <ion-label item-title padding-top>Anggy Akbar</ion-label>
             <!-- Content Subtitle -->
             <ion-label item-subtitle text-wrap>0605285864</ion-label>
-            <ion-radio item-end ></ion-radio>
+            <ion-radio item-end value="bni" ></ion-radio>
           </ion-item>
           <ion-item no-lines>
             <!-- Content Avatar -->
             <ion-thumbnail item-start>
-                <img images-filter src="assets/imgs/mandiri.jpg" />
+                <img src="assets/imgs/mandiri.jpg" />
             </ion-thumbnail>
             <!-- Content Title -->
             <ion-label item-title padding-top>Anggy Akbar</ion-label>
             <!-- Content Subtitle -->
             <ion-label item-subtitle text-wrap>7113341097</ion-label>
-            <ion-radio item-end ></ion-radio>
+            <ion-radio item-end value="mandiri"></ion-radio>
           </ion-item>
         </ion-list>
       </ion-col>  

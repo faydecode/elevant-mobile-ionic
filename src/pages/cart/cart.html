@@ -55,5 +55,7 @@
 </ion-content>
 
 <ion-footer>
+  <div *ngIf="cart.length">
     <button ion-button block (click)="cekLogin()">Proses Belanja <ion-icon name="md-arrow-forward"></ion-icon></button>
+  </div>
 </ion-footer>
