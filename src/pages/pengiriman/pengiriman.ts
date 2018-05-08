@@ -20,6 +20,18 @@ export class PengirimanPage {
 
   bank:string='bca';
 
+  jneTipe:any = [
+    { type: 'radio',label:'REG',value:'REG',checked:true },
+    { type: 'radio',label:'OK',value:'OK',checked:false },
+    { type: 'radio',label:'YES',value:'YES',checked:false }
+    
+  ];
+
+  tikiTipe:any = [
+    { type: 'radio',label:'REG',value:'REG',checked:true },
+    { type: 'radio',label:'ECO',value:'ECO',checked:false },
+  ]
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
   }
 
@@ -37,12 +49,19 @@ export class PengirimanPage {
       let alert = this.alertCtrl.create();
       alert.setTitle('Pilih Paket');
 
-      alert.addInput({
-        type: 'radio',
-        label: 'Blue',
-        value: 'blue',
-        checked: true
-      });
+      if(tipe === 'jne')
+      {
+        for(let t in this.jneTipe)
+        {
+          alert.addInput( this.jneTipe[t] );
+        }
+      } else {
+        for(let p in this.tikiTipe)
+        {
+          alert.addInput( this.tikiTipe[p]);
+        }
+      }
+      
 
       alert.addButton('Cancel');
       alert.addButton({
